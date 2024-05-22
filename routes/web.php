@@ -23,8 +23,9 @@ Route::middleware(['auth','verified'])
 ->prefix('admin')  //  /admin
 ->name('admin.')//nome delle rotte es. admin.dashboard
 ->group(function(){
-    Route::get('/', [DashboardController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
-}); //http://localhost:8000/admin
+    Route::get('/', [DashboardController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');//http://localhost:8000/admin
+        
+}); 
 
 
 
