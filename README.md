@@ -12,3 +12,13 @@ Per la parte di back-office creiamo un resource controller Admin\ProjectControll
 Bonus
 Implementiamo la validazione dei dati dei Progetti nelle operazioni CRUD che lo richiedono usando due form requests.
 Confermate lettura come al solito e buon lavoro
+
+
+bs5+ sass
+composer require pacificdev/laravel_9_preset
+php artisan preset:ui bootstrap --auth
+
+doc
+https://packagist.org/packages/pacificdev/laravel_9_preset
+It works from laravel 9.x to the latest release 10.x
+
