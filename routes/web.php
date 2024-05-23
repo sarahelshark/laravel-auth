@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +24,11 @@ Route::middleware(['auth','verified'])
 ->prefix('admin')  //  /admin
 ->name('admin.')//nome delle rotte es. admin.dashboard
 ->group(function(){
-    Route::get('/', [DashboardController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');//http://localhost:8000/admin
+    //http://localhost:8000/admin
+    Route::get('/', [DashboardController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard'); 
+    
+    //route dei posts 
+    Route::resource('posts', PostController::class);
         
 }); 
 
