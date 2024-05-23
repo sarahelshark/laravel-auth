@@ -25,7 +25,8 @@
                         $post->id}}</td>
                         <td scope="row">{{
                             $post->title}}</td>
-                    <td>{{$post->cover_image}}</td>
+                    <td>
+                        <img src="{{$post->cover_image}}" alt=""></td>
                     <td>{{$post->slug}}</td>
                     <td>
                         <a href="{{route('admin.posts.show',$post)}}" > view details</a>
