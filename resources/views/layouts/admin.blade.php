@@ -9,11 +9,13 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <fs6:css></fs6:css>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <!-- Font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
@@ -51,6 +53,12 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('admin.projects.index')}}">{{ __('Projects') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('admin.projects.create')}}">
+                                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                {{ __('New') }}
+                            </a>
                         </li>
                     </ul>
 

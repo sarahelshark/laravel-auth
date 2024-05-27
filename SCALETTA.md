@@ -185,11 +185,20 @@ require __DIR__.'/auth.php';
 php artisan route:list
 ```
 
-##
+## edit ProjectController index() by returning a view, then work on your view 
+```php
+//ProjectController.php
+ public function index()
+    {
+        //dd(Project::all());
+        return view('admin.projects.index',['projects'=>Project::orderByDesc('id')->paginate(5)]);
+        
+    }
 
-##
+```
 
-##
+## do the same with other methods!! 
+
 
 # SCALETTA RELAZIONI 
 
