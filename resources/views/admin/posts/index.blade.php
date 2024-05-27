@@ -1,7 +1,11 @@
 @extends('layouts.admin')
 
 @section('content')
-
+<header class="py-3">
+    <div class="container">
+        <h1>All Posts</h1>
+    </div>
+</header>
 <div class="container">
     <div
         class="table-responsive"
