@@ -45,17 +45,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
+                        <li class="nav-item {{ Request::is('/') ? 'bg-secondary rounded-2' : '' }}">
+                            <a class="nav-link {{ Request::is('/') ? 'text-white' : '' }}" href="{{ url('/') }}">{{ __('Home') }}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('admin.posts.index')}}">{{ __('Posts') }}</a>
+                        <li class="nav-item {{ Request::is('admin/posts*') ? 'bg-secondary rounded-2' : '' }}">
+                            <a class="nav-link {{ Request::is('admin/posts*') ? 'text-white' : '' }}" href="{{ route('admin.posts.index') }}">{{ __('Posts') }}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('admin.projects.index')}}">{{ __('Projects') }}</a>
+                        <li class="nav-item {{ Request::routeIs('admin.projects.index') ? 'bg-secondary rounded-2' : '' }}">
+                            <a class="nav-link {{ Request::routeIs('admin.projects.index') ? 'text-white' : '' }}" href="{{ route('admin.projects.index') }}">{{ __('Projects') }}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('admin.projects.create')}}">
+                        <li class="nav-item {{ Request::routeIs('admin.projects.create') ? 'bg-secondary  rounded-2' : '' }}">
+                            <a class="nav-link {{ Request::routeIs('admin.projects.create') ? 'text-white' : '' }}" href="{{ route('admin.projects.create') }}">
                                 <i class="fa fa-plus-circle" aria-hidden="true"></i>
                                 {{ __('New') }}
                             </a>
