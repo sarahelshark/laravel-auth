@@ -7,6 +7,9 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller; //import
 use Illuminate\Support\Facades\Storage; //import facade
+use Illuminate\Support\Str; // Correct import
+
+
 
 class ProjectController extends Controller
 {
@@ -89,6 +92,10 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+       if($project->cover_image && !Str::startsWith($project->cover_image,'https://')){
+        Storage::delete($project->cover_image);
+       };
+       $project->delete();
+       return to_route('admin.projects.index')->with('message','Congratulation! Project deleted correctly.');
     }
 }

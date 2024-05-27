@@ -46,7 +46,8 @@
                     <td>
                         <a class="btn btn-dark" href="{{route('admin.projects.show', $project)}}"> view</a>
                         <a class="btn btn-secondary" href="{{route('admin.projects.edit', $project)}}"> edit</a>
-                        /DELETE</td>
+                        
+                        @include('admin.projects.partials.delete-modal')</td>
                 </tr>
                 @empty
                     <tr

@@ -2,9 +2,12 @@
 
 @section('content')
 
-<header class="py-3">
-    <div class="container">
+<header class="py-3 ">
+    <div class="container d-flex justify-content-between">
         <h1>Edit {{$project->name}}</h1>
+        <a class="btn btn-secondary" role="button" href="{{route('admin.projects.index')}}">
+            Go Back
+           </a>
     </div>
 </header>
 
@@ -111,6 +114,7 @@
         >
             Update!
         </button>
+        
         
      </form>
      

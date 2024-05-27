@@ -28,3 +28,4 @@ https://packagist.org/packages/pacificdev/laravel_9_preset
 It works from laravel 9.x to the latest release 10.x
 
 
+@csrf cross site request forgery
