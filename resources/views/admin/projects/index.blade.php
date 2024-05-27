@@ -9,6 +9,7 @@
 </header>
 
 <div class="container mt-5">
+    @include('partials.session-message')
     <div
         class="table-responsive-md"
     >
