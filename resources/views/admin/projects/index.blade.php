@@ -42,7 +42,10 @@
                     <td>{{$project->name}}</td>
                     <td> <a href="{{$project->project_url}}" target="_blank" class="text-dark" rel="noopener noreferrer"> Preview</a></td>
                     <td><a href="{{$project->source_code_url}}" target="_blank" rel="noopener noreferrer" class="text-dark">Source Code</a> </td>
-                    <td>VIEW/EDIT/DELETE</td>
+                    <td>
+                        <a class="btn btn-dark" href="{{route('admin.projects.show', $project)}}"> view</a>
+                        <a class="btn btn-secondary" href="{{route('admin.projects.edit', $project)}}"> edit</a>
+                        /DELETE</td>
                 </tr>
                 @empty
                     <tr
