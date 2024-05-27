@@ -31,7 +31,13 @@
                     <tr>
                     <td scope="row">{{$project->id}}</td>
                     <td>
-                        <img loading="lazy" width="200" src="{{$project->cover_image}}" alt="{{$project->name}}" >
+                        @if (Str::startsWith($project->cover_image , 'https://'))
+                            <img loading="lazy" width="200" src="{{$project->cover_image}}" alt="{{$project->name}}" >
+                        @else
+                         <img loading="lazy" width="200" src="{{asset('storage/' . $project->cover_image)}}" alt="{{$project->name}}" >
+                        
+                        @endif
+                        
                     </td>
                     <td>{{$project->name}}</td>
                     <td> <a href="{{$project->project_url}}" target="_blank" class="text-dark" rel="noopener noreferrer"> Preview</a></td>
