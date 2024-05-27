@@ -2,7 +2,7 @@
 
 @section('content')
 <header class="py-3">
-    <div class="container">
+    <div class="container d-flex align-items-center justify-content-center">
         <h1>Project Details</h1>
     </div>
 </header>
