@@ -1,3 +1,133 @@
+# Start a new project in Laravel
+
+## setup of laravel & auth 
+```bash
+//laravel setup + auth code (wip)
+```
+## create a new model with artisan command
+```bash
+php artisan make:model Project -mcrsR
+
+//migration, controller (controller type = resource), seeder , form requests for validation
+```
+## follow the migration link and customize the table's rows 
+```php
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('projects', function (Blueprint $table) {
+            $table->id();
+            $table->string('name',200); 
+            $table->string('cover_image')->nullable();
+            $table->text('description')->nullable();
+            $table->string('project_url')->nullable();
+            $table->string('source_code_url')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('projects');
+    }
+};
+
+```
+
+## (1)fill the ProjectSeeder as you prefer (in this example I will use Faker) + (2)fill the DatabaseSeeder and then (3)run a single Migration for both 
+
+1. 
+```php
+//ProjectSeeder.php
+namespace Database\Seeders;
+
+use App\Models\Project; //import model
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Faker\Generator as Faker;  //import faker
+
+class ProjectSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(Faker $faker): void
+    {
+        for ($i=0; $i < 10 ; $i++) { 
+            $project = new Project();//create new instance 
+            $project->name = $faker->words(4, true);
+            $project->cover_image= $faker->imageUrl(640,400,'Projects',true,$project->name, true, 'jpg');
+            $project->description = $faker->paragraphs(5,true);
+            $project->project_url = $faker->url();
+            $project->source_code_url = $faker->url();
+            $project->save();
+        }
+    }
+}
+
+```
+2. 
+
+```php
+//Database.Seeder.php
+namespace Database\Seeders;
+
+use Database\Seeders\ProjectSeeder; //import my model's seeder 
+
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+
+class DatabaseSeeder extends Seeder
+{
+    /**
+     * Seed the application's database.
+     */
+    public function run(): void
+    {
+        $this->call([
+            ProjectSeeder::class
+        ]);
+    }
+}
+
+```
+3. 
+```bash
+php artisan migrate --seed
+```
+
+! to see what is present in the db after the seed >>>
+```bash
+php artisan ti
+Project::All()
+```
+...if the model is not found immediately, ctrl+c and try composer autoload, then run the previous command again
+```bash
+//alias of Project to see it faster 
+composer dump-autoload
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # SCALETTA RELAZIONI 
 
 ## Create Migrations, Model, Controller, Seeder for Categories: 
