@@ -6,6 +6,7 @@ use App\Models\Project; //import
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller; //import
+use Illuminate\Support\Facades\Storage; //import facade
 
 class ProjectController extends Controller
 {
@@ -31,7 +32,14 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //
+        //error 403
+        //dd($request->all());
+        $validated = $request->validated();
+        $validated['cover_image'] = Storage::put('uploads', $request->cover_image); //a dove, da dove   in your codebase STORAGE you'll have the images uploaded
+   
+        Project::create($validated);
+
+        return to_route('admin.projects.index')->with('message','Congratulation! Project added correctly to your portfolio');
     }
 
     /**

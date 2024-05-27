@@ -33,7 +33,7 @@
                         <img src="{{$post->cover_image}}" alt=""></td>
                     <td>{{$post->slug}}</td>
                     <td>
-                        <a href="{{route('admin.posts.show',$post)}}" > view details</a>
+                        <a href="{{route('admin.posts.show',$post)}}" class="text-dark"> view details</a>
                     </td>
                 </tr>
                 @empty

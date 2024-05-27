@@ -18,8 +18,6 @@ Implementiamo la validazione dei dati dei Progetti nelle operazioni CRUD che lo 
 
 
 
-
-
 ________________________________________________________________
 bs5+ sass
 composer require pacificdev/laravel_9_preset
