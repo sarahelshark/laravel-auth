@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin; //edit namespace
 
-use App\Models\Project;
+use App\Models\Project; //import
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use App\Http\Controllers\Controller; //import
 
 class ProjectController extends Controller
 {

@@ -4,12 +4,14 @@
 ```bash
 //laravel setup + auth code (wip)
 ```
+
 ## create a new model with artisan command
 ```bash
 php artisan make:model Project -mcrsR
 
 //migration, controller (controller type = resource), seeder , form requests for validation
 ```
+
 ## follow the migration link and customize the table's rows 
 ```php
 
@@ -42,7 +44,7 @@ return new class extends Migration
 
 ```
 
-## (1)fill the ProjectSeeder as you prefer (in this example I will use Faker) + (2)fill the DatabaseSeeder and then (3)run a single Migration for both 
+## (1) fill the ProjectSeeder as you prefer (in this example I will use Faker) + (2) fill the DatabaseSeeder and then (3)run a single Migration for both 
 
 1. 
 ```php
@@ -103,7 +105,6 @@ class DatabaseSeeder extends Seeder
 ```bash
 php artisan migrate --seed
 ```
-
 ! to see what is present in the db after the seed >>>
 ```bash
 php artisan ti
@@ -117,16 +118,78 @@ composer dump-autoload
 
 
 
+## since we created the Model, its migration, seeder and controller with the shortcut command "php artisan make:model Project -mcrsR", the ProjectController.php file will be generated directly in the Controllers folder, you shall put it in the Admin folder (remember to edit the namespace!)
+```php
+//ProjectController.php
+namespace App\Http\Controllers\Admin; //edit namespace
+
+use App\Models\Project; //import
+use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
+use App\Http\Controllers\Controller; //import
+
+```
+
+## create a route for your new model in web.php
+```php
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\ProjectController; //import 
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('welcome');
+});  //http://localhost:8000/
+
+Route::middleware(['auth','verified'])
+->prefix('admin')  //  /admin
+->name('admin.')//nome delle rotte es. admin.dashboard
+->group(function(){
+    //http://localhost:8000/admin
+    Route::get('/', [DashboardController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard'); 
+    
+    //route dei posts 
+    Route::resource('posts', PostController::class);
+
+    //route dei projects
+    Route::resource('projects', ProjectController::class);
+        
+}); 
 
 
 
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
+require __DIR__.'/auth.php';
 
+```
 
+## to see all 7 routes you've created for your CRUD operations, run the command:
+```bash
+php artisan route:list
+```
 
+##
 
+##
 
-
+##
 
 # SCALETTA RELAZIONI 
 

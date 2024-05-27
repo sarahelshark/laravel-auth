@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\ProjectController; //import 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +30,9 @@ Route::middleware(['auth','verified'])
     
     //route dei posts 
     Route::resource('posts', PostController::class);
+
+    //route dei projects
+    Route::resource('projects', ProjectController::class);
         
 }); 
 
