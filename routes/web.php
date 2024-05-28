@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ProjectController; //import 
 use App\Models\Project;
 use App\Http\Controllers\ProfileController;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,7 @@ Route::get('/', function () {
     return view('welcome');
 });  //http://localhost:8000/
 
+//routes for guests:projects
 Route::get('projects', function () {
     return view('guest.projects.index', ['projects'=>Project::orderByDesc('id')->paginate(8)]);
 })->name('guest.projects.index'); 
@@ -29,6 +31,16 @@ Route::get('projects', function () {
 Route::get('projects/{project}', function (Project $project) {
     return view('guest.projects.show', compact('project'));
 })->name('guest.projects.show');
+
+//routes for guests:posts
+Route::get('posts', function () {
+    return view('guest.posts.index', ['posts'=>Project::orderByDesc('id')->paginate(8)]);
+})->name('guest.posts.index'); 
+
+Route::get('posts/{post}', function (Post $post) {
+    return view('guest.posts.show', compact('post'));
+})->name('guest.posts.show');
+
 
 
 
