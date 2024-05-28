@@ -23,12 +23,12 @@ Route::get('/', function () {
 });  //http://localhost:8000/
 
 Route::get('projects', function () {
-    return view('guests.projects.index', ['projects'=>Project::orderByDesc('id')->paginate(8)]);
-})->name('guests.projects.index'); 
+    return view('guest.projects.index', ['projects'=>Project::orderByDesc('id')->paginate(8)]);
+})->name('guest.projects.index'); 
 
 Route::get('projects/{project}', function (Project $project) {
-    return view('guests.projects.show', compact('project'));
-})->name('guests.projects.show');
+    return view('guest.projects.show', compact('project'));
+})->name('guest.projects.show');
 
 
 

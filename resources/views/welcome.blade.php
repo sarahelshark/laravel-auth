@@ -17,7 +17,7 @@
                 <p class="col-md-8 fs-4">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid dolorem commodi veritatis adipisci temporibusoris repellendus facilis animi magnam? Commodi totam doloribus voluptatem magni tempora reiciendis perspiciatis.
                 </p>
-                <a href="{{route('guests.projects.index')}}" class="btn btn-primary btn-lg" type="button">Check out my projects</a>
+                <a href="{{route('guest.projects.index')}}" class="btn btn-secondary btn-lg" type="button">Check out my projects</a>
             </div>
         </div>
         
