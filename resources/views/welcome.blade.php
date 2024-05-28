@@ -26,27 +26,27 @@
 </div>
 
 <div class="content">
-    <div class="container">
+    <div class="container mt-4">
         <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora temporibus, dicta nemo aliquam totam nisi deserunt soluta quas voluptatum ab beatae praesentium necessitatibus minus, facilis illum rerum officiis accusamus dolores!
         </p>
-        <div class="row">
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-3">
          @forelse ($posts as $post)
          <div class="col">
-            <div class="card">
+            <div class="card h-100">
 
                 @if (Str::startsWith($post->cover_image , 'https://'))
-                    <img loading="lazy" class="card-img-top" width="200" src="{{$post->cover_image}}" alt="{{$post->title}}" >
+                    <img loading="lazy" class="card-img-top "  src="{{$post->cover_image}}" alt="{{$post->title}}" >
                 @else
-                   <img loading="lazy" class="card-img-top" width="200" src="{{asset('storage/' . $post->cover_image)}}" alt="{{$post->title}}" >
+                   <img loading="lazy" class="card-img-top"  src="{{asset('storage/' . $post->cover_image)}}" alt="{{$post->title}}" >
                         
                 @endif
                 
-                <div class="card-body">
-                    <h3>{{$post->title}}</h3>
+                <div class="card-body d-flex flex-column ">
+                    <h4>{{$post->title}}</h4> 
                 </div>
-                <div class="card-footer">
-                    <a href="{{route('guest.posts.show', $post)}}" class="btn btn-secondary " type="button">Read More</a>
+                <div class="card-footer mt-auto">
+                   <a href="{{route('guest.posts.show', $post)}}" class="btn btn-secondary " type="button">Read More</a>
                 </div>
             </div>
          </div>
@@ -66,5 +66,10 @@
         
     
 </div>
+<footer class="bg-light text-center text-lg-start mt-auto">
+    <div class="container p-4">
+        <p>&copy; {{ date('Y') }} Sarah's Portfolio. Made with love &#9825;</p>
+    </div>
+</footer>
 @endsection
 
