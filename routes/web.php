@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', ['posts' => Post::orderByDesc('id')->take(3)->get()]);
 });  //http://localhost:8000/
 
 //routes for guests:projects

@@ -47,7 +47,7 @@
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item {{ Request::is('/') ? 'bg-secondary rounded-2' : '' }}">
                             <a class="nav-link {{ Request::is('/') ? 'text-white' : '' }}" href="{{ url('/') }}">{{ __('Home') }}</a>
-                        </li>
+                        </li> 
                         <li class="nav-item {{ Request::is('posts') ? 'bg-secondary rounded-2' : '' }}">
                             <a class="nav-link {{ Request::is('posts') ? 'text-white' : '' }}" href="{{ route('guest.posts.index') }}">{{ __('Posts') }}</a>
                         </li>
