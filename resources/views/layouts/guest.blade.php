@@ -51,8 +51,8 @@
                         <li class="nav-item {{ Request::is('admin/posts*') ? 'bg-secondary rounded-2' : '' }}">
                             <a class="nav-link {{ Request::is('admin/posts*') ? 'text-white' : '' }}" href="{{ route('admin.posts.index') }}">{{ __('Posts') }}</a>
                         </li>
-                        <li class="nav-item {{ Request::routeIs('admin.projects.index') ? 'bg-secondary rounded-2' : '' }}">
-                            <a class="nav-link {{ Request::routeIs('admin.projects.index') ? 'text-white' : '' }}" href="{{ route('admin.projects.index') }}">{{ __('Projects') }}</a>
+                        <li class="nav-item {{ Request::Is('projects') ? 'bg-secondary rounded-2' : '' }}">
+                            <a class="nav-link {{ Request::Is('projects') ? 'text-white' : '' }}" href="{{route('guest.projects.index')}}">{{ __('Projects') }}</a>
                         </li>
                         
                     </ul>
