@@ -1,8 +1,29 @@
 @extends('layouts.admin')
+@extends('layouts.guest')
 @section('content')
 
 <div class="jumbotron p-5 mb-4 bg-light rounded-3">
     <div class="container py-5">
+        <div class="row">
+            <div class="col-auto">
+                <div class="profile_image">
+                    <img width="200px" class="img-fluid rounded-circle" src="/img/gatto_saggio.jpg" alt="my profile pic" srcset="">
+                </div>
+            </div>
+            <div class="col">
+                <h1 class="display-5 fw-bold">
+                    Welcome to my potfolio
+                </h1>
+        
+                <p class="col-md-8 fs-4">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid dolorem commodi veritatis adipisci temporibusoris repellendus facilis animi magnam? Commodi totam doloribus voluptatem magni tempora reiciendis perspiciatis.
+                </p>
+                <a href="{{route('guests.projects.index')}}" class="btn btn-primary btn-lg" type="button">Check out my projects</a>
+            </div>
+        </div>
+        
+        <hr>
+
         <div class="logo_laravel">
             <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-25">
                 <g clip-path="url(#clip0)" fill="#EF3B2D">
@@ -10,6 +31,7 @@
                 </g>
             </svg>
         </div>
+        
         <h1 class="display-5 fw-bold">
             Welcome to my potfolio
         </h1>
