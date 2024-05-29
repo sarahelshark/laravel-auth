@@ -68,10 +68,6 @@
         
     
 </div>
-<footer class="bg-light text-center text-lg-start mt-auto">
-    <div class="container p-4">
-        <p>&copy; {{ date('Y') }} Sarah's Portfolio. Made with love &#9825;</p>
-    </div>
-</footer>
+
 @endsection
 

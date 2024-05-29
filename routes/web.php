@@ -25,7 +25,7 @@ Route::get('/', function () {
 
 //routes for guests:projects
 Route::get('projects', function () {
-    return view('guest.projects.index', ['projects'=>Project::orderByDesc('id')->paginate(8)]);
+    return view('guest.projects.index', ['projects'=>Project::orderByDesc('id')->paginate(6)]);
 })->name('guest.projects.index'); 
 
 Route::get('projects/{project}', function (Project $project) {
@@ -34,7 +34,7 @@ Route::get('projects/{project}', function (Project $project) {
 
 //routes for guests:posts
 Route::get('posts', function () {
-    return view('guest.posts.index', ['posts'=>Post::orderByDesc('id')->paginate(8)]);
+    return view('guest.posts.index', ['posts'=>Post::orderByDesc('id')->paginate(6)]);
 })->name('guest.posts.index'); 
 
 Route::get('posts/{post}', function (Post $post) {

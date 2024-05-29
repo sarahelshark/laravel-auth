@@ -10,14 +10,14 @@
                <div class="card h-100">
    
                    @if (Str::startsWith($post->cover_image , 'https://'))
-                       <img loading="lazy" class="card-img-top "  src="{{$post->cover_image}}" alt="{{$post->name}}" >
+                       <img loading="lazy" class="card-img-top "  src="{{$post->cover_image}}" alt="{{$post->title}}" >
                    @else
-                      <img loading="lazy" class="card-img-top"  src="{{asset('storage/' . $post->cover_image)}}" alt="{{$post->name}}" >
+                      <img loading="lazy" class="card-img-top"  src="{{asset('storage/' . $post->cover_image)}}" alt="{{$post->title}}" >
                            
                    @endif
                    
                    <div class="card-body d-flex flex-column ">
-                       <h4>{{$post->name}}</h4> 
+                       <h4>{{$post->title}}</h4> 
                    </div>
                    <div class="card-footer mt-auto">
                       <a href="{{route('guest.posts.show',$post )}}" class="btn btn-secondary " type="button">Read More</a>
