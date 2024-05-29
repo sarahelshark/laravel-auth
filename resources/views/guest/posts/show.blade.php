@@ -9,6 +9,7 @@
    <div>{{$post->slug}}</div>
    <a class="btn btn-primary" href="{{ url('/') }}" > Go Back</a>
    <a class="btn btn-primary" href="{{route('guest.posts.index')}}" > see more posts</a>
+   
 </div>
 
 @endsection

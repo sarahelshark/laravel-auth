@@ -31,7 +31,7 @@
             No Posts Available.
             </div>
              @endforelse
-           </div>
+        </div>
 
     </div>
 </header>
