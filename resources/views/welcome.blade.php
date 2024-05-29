@@ -1,7 +1,7 @@
 @extends('layouts.guest')
 @section('content')
 
-<div class="jumbotron p-5 mb-4 bg-light rounded-3">
+<div class="jumbotron p-5  bg-light rounded-3">
     <div class="container py-5">
         <div class="row">
             <div class="col-auto">
@@ -25,12 +25,14 @@
     </div>
 </div>
 
+
 <div class="content">
     <div class="container mt-4">
         <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora temporibus, dicta nemo aliquam totam nisi deserunt soluta quas voluptatum ab beatae praesentium necessitatibus minus, facilis illum rerum officiis accusamus dolores!
         </p>
-        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-3">
+
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-3  mt-4">
          @forelse ($posts as $post)
          <div class="col">
             <div class="card h-100">
