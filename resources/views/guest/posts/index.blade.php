@@ -20,7 +20,7 @@
                        <h4>{{$post->name}}</h4> 
                    </div>
                    <div class="card-footer mt-auto">
-                      <a href="{{route('guest.posts.index')}}" class="btn btn-secondary " type="button">Read More</a>
+                      <a href="{{route('guest.posts.show',$post )}}" class="btn btn-secondary " type="button">Read More</a>
                    </div>
                </div>
             </div>
