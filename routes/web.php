@@ -34,7 +34,7 @@ Route::get('projects/{project}', function (Project $project) {
 
 //routes for guests:posts
 Route::get('posts', function () {
-    return view('guest.posts.index', ['posts'=>Project::orderByDesc('id')->paginate(8)]);
+    return view('guest.posts.index', ['posts'=>Post::orderByDesc('id')->paginate(8)]);
 })->name('guest.posts.index'); 
 
 Route::get('posts/{post}', function (Post $post) {
