@@ -72,7 +72,7 @@
                 id="project_url"
                 aria-describedby="urlHelper"
                 placeholder="https://"
-                value="{{old('project_url, $project->project_url')}}"
+                value="{{old('project_url', $project->project_url)}}"
             />
             <small id="urlHelper" class="form-text text-muted">type a url for your project</small>
 
@@ -91,7 +91,7 @@
                 id="source_code_url"
                 aria-describedby="sourceHelper"
                 placeholder="New project source code URL"
-                value="{{old('source_code_url, $project->source_code_url')}}"
+                value="{{old('source_code_url', $project->source_code_url)}}"
             />
             <small id="sourceHelper" class="form-text text-muted">type link to source code of your project</small>
             @error('source_code_url')
@@ -101,7 +101,7 @@
         
         <div class="mb-3">
             <label for="description" class="form-label">Description</label>
-            <textarea class="form-control" name="description" id="description" rows="3" value="{{old('description, $project->description')}}"></textarea>
+            <textarea class="form-control" name="description" id="description" rows="3" value="{{old('description', $project->description)}}"> {{old('description', $project->description)}} </textarea>
 
             @error('description')
              <div class="text-danger">{{$message}}</div>
