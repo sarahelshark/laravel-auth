@@ -23,6 +23,7 @@ class StoreProjectRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'type_id' =>'nullable | exists:types,id' ,
             'cover_image' => 'nullable|image|max:900',
             'project_url' => 'nullable',
             'source_code_url' => 'nullable',

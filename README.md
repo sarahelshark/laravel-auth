@@ -44,9 +44,11 @@ step 2
 
 step 3
 - visualizzare nella pagina di dettaglio di un progetto la tipologia associata, se presente
-- permettere all’utente di associare una tipologia nella pagina di creazione e modifica di un  progetto
-- gestire il salvataggio dell’associazione progetto-tipologia con opportune regole di validazione
-Bonus 1: creare il seeder per il model Type.
+- permettere all’utente di associare una tipologia nella pagina di creazione e modifica di un  progetto  <----F A T T O
+- gestire il salvataggio dell’associazione progetto-tipologia con opportune regole di validazione  <----F A T T O
+
+Bonus 1: creare il seeder per il model Type.  <----F A T T O
+
 Bonus 2: aggiungere le operazioni CRUD per il model Type, in modo da gestire le tipologie di progetto direttamente dal pannello di amministrazione.
 
 

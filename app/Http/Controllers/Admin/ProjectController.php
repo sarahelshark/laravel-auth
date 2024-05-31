@@ -8,7 +8,7 @@ use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller; //import
 use Illuminate\Support\Facades\Storage; //import facade
 use Illuminate\Support\Str; // Correct import
-
+use App\Models\Type;
 
 
 class ProjectController extends Controller
@@ -27,7 +27,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        $types= Type::all();
+        return view('admin.projects.create', compact('types'));
     }
 
     /**

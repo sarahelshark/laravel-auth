@@ -23,13 +23,31 @@
                 id="name"
                 aria-describedby="nameHelper"
                 placeholder="New project name"
-                value="{{old('name')}}"
             />
             <small id="nameHelper" class="form-text text-muted">type a name for your project</small>
 
             @error('name')
              <div class="text-danger">{{$message}}</div>
             @enderror
+        </div>
+        
+        <div class="mb-3">
+            <label for="type_id" class="form-label">Project Type</label>
+            <select
+                class="form-select"
+                name="type_id"
+                id="type_id"
+            >
+                <option selected disabled>Select one</option>
+                
+                @foreach ($types as $type)
+                 <option value="{{$type->id}}"
+                    {{ old('type_id') == $type->id ? 'selected' : '' }}
+                    >
+                    {{$type->name}}
+                </option>
+                @endforeach
+            </select>
         </div>
 
         <div class="mb-3">
