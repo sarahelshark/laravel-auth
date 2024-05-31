@@ -43,7 +43,7 @@ step 2
 - aggiungere ai model Type e Project i metodi per definire la relazione one to many <----F A T T O
 
 step 3
-- visualizzare nella pagina di dettaglio di un progetto la tipologia associata, se presente
+- visualizzare nella pagina di dettaglio di un progetto la tipologia associata, se presente <----F A T T O
 - permettere all’utente di associare una tipologia nella pagina di creazione e modifica di un  progetto  <----F A T T O
 - gestire il salvataggio dell’associazione progetto-tipologia con opportune regole di validazione  <----F A T T O
 

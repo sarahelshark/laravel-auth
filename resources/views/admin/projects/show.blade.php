@@ -21,6 +21,12 @@
             <h3 class="text-muted">
                 {{$project->name}}
             </h3>
+            <div>
+                <strong>
+                Category:</strong>
+                {{$project->type->name}}
+            
+            </div>
             <p>
                 {{$project->description}}
             </p>

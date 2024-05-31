@@ -22,12 +22,12 @@ class StoreProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
-            'type_id' =>'nullable | exists:types,id' ,
-            'cover_image' => 'nullable|image|max:900',
+            'name' => 'required|string|max:255',
             'project_url' => 'nullable',
             'source_code_url' => 'nullable',
-            'description' => 'required',
+            'description' => 'required|string',
+            'type_id' => 'required|exists:types,id', 
+            'cover_image' => 'nullable|image|max:2048',
         ];
     }
 }

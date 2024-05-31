@@ -10,7 +10,7 @@ class Project extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'cover_image', 'project_url', 'source_code_url','description'];
+    protected $fillable = ['name','type_id' , 'cover_image', 'project_url', 'source_code_url','description'];
     // add Fillable properties (array) to consent the mass assignment
    public function type() : BelongsTo
     {

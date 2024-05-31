@@ -39,9 +39,12 @@ class ProjectController extends Controller
         //error 403
         //dd($request->all());
         $validated = $request->validated();
-        $validated['cover_image'] = Storage::put('uploads', $request->cover_image); //a dove, da dove   in your codebase STORAGE you'll have the images uploaded
+        if($request->has('cover_image')){
+            $validated['cover_image'] = Storage::put('uploads', $request->cover_image); //a dove, da dove   in your codebase STORAGE you'll have the images uploaded
+        }
    
         Project::create($validated);
+        //dd();
 
         return to_route('admin.projects.index')->with('message','Congratulation! Project added correctly to your portfolio');
     }
