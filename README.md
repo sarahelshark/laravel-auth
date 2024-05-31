@@ -34,10 +34,15 @@ Nella stessa repo aggiungiamo una nuova entità Type.
 
 Questa entità rappresenta la tipologia di progetto ed è in relazione ONE TO MANY con i progetti.
 
+step 1
 - creare la migration per la tabella types <----F A T T O
 - creare il model Type <----F A T T O
-- creare la migration di modifica per la tabella projects per aggiungere la chiave esterna
-- aggiungere ai model Type e Project i metodi per definire la relazione one to many
+
+step 2
+- creare la migration di modifica per la tabella projects per aggiungere la chiave esterna  <----F A T T O
+- aggiungere ai model Type e Project i metodi per definire la relazione one to many <----F A T T O
+
+step 3
 - visualizzare nella pagina di dettaglio di un progetto la tipologia associata, se presente
 - permettere all’utente di associare una tipologia nella pagina di creazione e modifica di un  progetto
 - gestire il salvataggio dell’associazione progetto-tipologia con opportune regole di validazione
