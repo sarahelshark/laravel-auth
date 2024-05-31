@@ -36,6 +36,19 @@
             @enderror
         </div>
 
+        <div class="mb-3">
+            <label for="type_id" class="form-label">Project Type</label>
+            <select class="form-select" name="type_id" id="type_id">
+                <option selected disabled>Select one</option>
+                
+                @foreach ($types as $type)
+                    <option value="{{ $type->id }}" {{ old('type_id',$project->type_id) == $type->id ? 'selected' : '' }}>
+                        {{ $type->name }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+
         <div class="mb-3 d-flex gap-4 ">
             @if (Str::startsWith($project->cover_image , 'https://'))
             <img loading="lazy" width="200" src="{{$project->cover_image}}" alt="{{$project->name}}" >
