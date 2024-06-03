@@ -6,6 +6,7 @@ use App\Models\Project; //import
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller; //import
+use App\Models\Technology;
 use Illuminate\Support\Facades\Storage; //import facade
 use Illuminate\Support\Str; // Correct import
 use App\Models\Type;
@@ -28,7 +29,9 @@ class ProjectController extends Controller
     public function create()
     {
         $types= Type::all();
-        return view('admin.projects.create', compact('types'));
+        $technologies= Technology::all();
+
+        return view('admin.projects.create', compact('types','technologies'));
     }
 
     /**
@@ -43,8 +46,11 @@ class ProjectController extends Controller
             $validated['cover_image'] = Storage::put('uploads', $request->cover_image); //a dove, da dove   in your codebase STORAGE you'll have the images uploaded
         }
    
-        Project::create($validated);
+        $project = Project::create($validated);
         //dd();
+        if($request->has('technologies')){
+            $project->technologies()->attach($validated['technologies']);
+        };
 
         return to_route('admin.projects.index')->with('message','Congratulation! Project added correctly to your portfolio');
     }
@@ -63,7 +69,8 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $types = Type::all();
-        return view('admin.projects.edit', compact('project','types'));
+        $technologies = Technology::all();
+        return view('admin.projects.edit', compact('project','types','technologies'));
     }
 
     /**
@@ -87,6 +94,10 @@ class ProjectController extends Controller
         //update model
         $project->update($validated);
 
+        if($request->has('technologies')){
+            $project->technologies()->sync($validated['technologies']);
+        };
+
         //redirect
         return to_route('admin.projects.index')->with('message','Congratulation! Project updated correctly.');
 
@@ -97,6 +108,8 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+
+        //$project->technologies()->detach(); solo se non avessi usato il metodo cascadeOnDelete() nella tabella pivot create_project_technology_table
        if($project->cover_image && !Str::startsWith($project->cover_image,'https://')){
         Storage::delete($project->cover_image);
        };

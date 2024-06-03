@@ -24,6 +24,7 @@ class UpdateProjectRequest extends FormRequest
         return [
             'name' => 'required',
             'cover_image' => 'nullable|image|max:900',
+            'technologies'=>'exists:technologies,id',
             'project_url' => 'nullable',
             'source_code_url' => 'nullable',
             'description' => 'nullable',

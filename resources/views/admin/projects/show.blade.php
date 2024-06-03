@@ -21,10 +21,20 @@
             <h3 class="text-muted">
                 {{$project->name}}
             </h3>
-            <div>
+            <div class="metadata">
                 <strong>
                 Category:</strong>
-                {{$project->type->name}}
+                {{$project->type ? $project->type->name : N/A}}
+                <div class="technologies">
+                    @forelse ($project->technologies as $tech)
+                    <strong>
+                        technologies:
+                    </strong>
+                        <span class="badge bg-dark" > {{$tech->name}}</span>
+                    @empty
+                        <span>N/A</span>
+                    @endforelse
+                </div>
             
             </div>
             <p>
