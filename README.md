@@ -66,3 +66,87 @@ Bonus 1: creare il seeder per il model Technology.
 Bonus 2: aggiungere le operazioni CRUD per il model Technology, in modo da gestire le tecnologie utilizzate nei progetti direttamente dal pannello di amministrazione.
 
 
+
+L’esercizio di oggi è suddiviso in milestone ed è importante che ne seguiate l’ordine.
+Milestone 1
+Aggiungiamo al nostro progetto Laravel una nuovo Api/ProjectController. <---- ok
+Questo controller risponderà a delle richieste via API e si occuperà di restituire la lista dei progetti presenti nel database in formato json.   <---- ok
+
+Milestone 2
+Testiamo la chiamata API tramite Postman e assicuriamoci di ricevere i dati correttamente  <---- ok
+
+### API.PHP 
+diff con web.php? 
+- andiamo a restituire dati in formato json nelle nostre rotte (poi uso fetch di js o axios x consumare le api)
+>> return NON view ma FILE JSON dentro la fine del notro metodo nel Controller 
+
+return response() ->json([
+    "name"=>"Michele",
+    "state"=>'Italy'
+]);
+l'array viene trasformato in JSON da consegnare ad utente tramite chiamata API
+>> return NON SOLO file JSON, ma potrei anche ritornare una COLLECTION 
+
+ return::all() 
+
+1) CREARE UNA CARTELLA AAPI DEDICATA, CONTROLLER
+```bash
+ php artisan make:controller Api/UserController
+
+```
+2) METODO INDEX, restituisce la lista di tutti i post presenti nel nostro db
+```php
+pulic function index(){
+    $posts = Post::all();
+    return responde() ->json([
+        'success' => true,
+        'results' => $posts''
+    ]);
+    };
+    //restituisce tutta la collection
+```
+!! paginazione
+se abbiamo molti records nel db, possiamo mostrarli gradualmente con la paginazione  ->paginate(numero)
+posso farlo anche con API 
+
+```php
+pulic function index(){
+    $posts = Post::paginate(3);
+    return response() ->json([
+        'success' => true,
+        'results' => $posts''
+    ]);
+    };
+    //restituisce una istanza del paginatore con dati e info della paginazione >>> di fatto, la paginazione modifica il modo in cui sono strutturati i dati chericeviamo 
+    this.posts= response.data.results.data;   (results chiave=>valore) in data trovo la lista post 
+    this.currentPage= response.data.results.current_page;
+    this.lastPage = responde.data.results.last_page;
+```
+
+3) NAVIGARE TRA PAGINE, con chiamata ajax, attraverso il parametro PAGE e richiesta GET
+!!! nessuna modifica al controller in quanto cie pensa Laravek automaticamente
+ ```php
+ axios.get(`${this.baseURL}`/api/posts, {
+    params:{
+        page:PostApiPage
+    }
+ })
+ //http://127.0.0.1:80000/api/posts?page=2
+ ```
+
+ EAGER LOADING=>recuperare in modo ottimizzato i model collegati
+ 
+ se voglio che Eloquent aggiugna ai risultati i vari records che sono inb relazione con il nostro model principale (in questo caso Post), 
+ - usare metodo with() 
+ - passare come parametri i nomi dei metodi dentro il modello Post o quello che stiamo ottimizzando, tipo category o user
+
+ ```php
+ pulic function index(){
+    $posts = Post::with('category', 'user')->paginate(3);
+    return responde() ->json([
+        'success' => true,
+        'results' => $posts''
+    ]);
+    };
+ ```
+
