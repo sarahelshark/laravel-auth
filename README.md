@@ -80,6 +80,7 @@ diff con web.php?
 - andiamo a restituire dati in formato json nelle nostre rotte (poi uso fetch di js o axios x consumare le api)
 >> return NON view ma FILE JSON dentro la fine del notro metodo nel Controller 
 
+ritornare una "closure" 
 return response() ->json([
     "name"=>"Michele",
     "state"=>'Italy'
