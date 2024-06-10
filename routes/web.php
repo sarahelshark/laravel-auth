@@ -25,8 +25,8 @@ Route::get('/', function () {
 
 //routes for guests:projects
 Route::get('projects', function () {
-    return view('guest.projects.index', ['projects'=>Project::orderByDesc('id')->paginate(6)]);
-})->name('guest.projects.index'); 
+    return view('guest.projects.index', ['projects' => Project::orderByDesc('id')->paginate(6)]);
+})->name('guest.projects.index');
 
 Route::get('projects/{project}', function (Project $project) {
     return view('guest.projects.show', compact('project'));
@@ -34,8 +34,8 @@ Route::get('projects/{project}', function (Project $project) {
 
 //routes for guests:posts
 Route::get('posts', function () {
-    return view('guest.posts.index', ['posts'=>Post::orderByDesc('id')->paginate(6)]);
-})->name('guest.posts.index'); 
+    return view('guest.posts.index', ['posts' => Post::orderByDesc('id')->paginate(6)]);
+})->name('guest.posts.index');
 
 Route::get('posts/{post}', function (Post $post) {
     return view('guest.posts.show', compact('post'));
@@ -44,20 +44,19 @@ Route::get('posts/{post}', function (Post $post) {
 
 
 
-Route::middleware(['auth','verified'])
-->prefix('admin')  //  /admin
-->name('admin.')//nome delle rotte es. admin.dashboard
-->group(function(){
-    //http://localhost:8000/admin
-    Route::get('/', [DashboardController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard'); 
-    
-    //route dei posts 
-    Route::resource('posts', PostController::class);
+Route::middleware(['auth', 'verified'])
+    ->prefix('admin')  //  /admin
+    ->name('admin.') //nome delle rotte es. admin.dashboard
+    ->group(function () {
+        //http://localhost:8000/admin
+        Route::get('/', [DashboardController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
-    //route dei projects
-    Route::resource('projects', ProjectController::class);
-        
-}); 
+        //route dei posts 
+        Route::resource('posts', PostController::class);
+
+        //route dei projects
+        Route::resource('projects', ProjectController::class);
+    });
 
 
 
@@ -67,4 +66,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

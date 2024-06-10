@@ -313,3 +313,17 @@ public function down(): void
 
     
    
+1. creo un nuovo oggetto mailable
+
+2. operazione in ciascuno dei 3 metodi 
+
+- oggetto e indirizzo di risposta parametri con cui istanzio envelope()
+- metodo content() 
+-attachment() opzionale
+
+3. come inviare la email ? creiamo un controller che si occupera di ricevere i dati nel nostro form, memorizzarli nel db, inviarli via mail  send()-->facade Mail
+indirizzi noreply e indirizzi concreti controlla
+mailto > dove 
+
+template  markdown migliore 
+phph artisan vendor publish > per modificarlo ancora di piu e customizzare 
